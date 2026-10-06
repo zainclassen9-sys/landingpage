@@ -1,401 +1,368 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pick n Cheaper | Everyday Grocery Savings</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --primary: #00875A;
-      --primary-dark: #006644;
-      --accent: #E52E2E;
-      --accent-light: #FFEBEB;
-      --bg-dark: #0F172A;
-      --bg-light: #F8FAFC;
-      --text-dark: #1E293B;
-      --text-muted: #64748B;
-      --border: #E2E8F0;
-      --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
-      --radius: 12px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      color: var(--text-dark);
-      background-color: var(--bg-light);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Header & Navigation */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 72px;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-btn {
-      background: var(--accent);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: background 0.2s ease;
-    }
-
-    .nav-btn:hover {
-      background: #C82323;
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 80px 0 60px;
-      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-      color: white;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(229, 46, 46, 0.2);
-      color: #FF8A8A;
-      border: 1px solid rgba(229, 46, 46, 0.4);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #94A3B8;
-      max-width: 600px;
-      margin: 0 auto 32px;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 16px 36px;
-      border-radius: 40px;
-      font-size: 18px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0, 135, 90, 0.4);
-      transition: all 0.2s ease;
-    }
-
-    .cta-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    /* Benefits Section */
-    .benefits {
-      padding: 80px 0;
-      background-color: #ffffff;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 50px;
-    }
-
-    .section-heading span {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .section-heading h2 {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--text-dark);
-      margin-bottom: 12px;
-    }
-
-    .section-heading p {
-      font-size: 16px;
-      color: var(--text-muted);
-    }
-
-    .benefit-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .benefit-card {
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 36px 28px;
-      transition: all 0.3s ease;
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-      border-color: #CBD5E1;
-    }
-
-    .benefit-card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .benefit-card h3::before {
-      content: "✓";
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      background-color: rgba(0, 135, 90, 0.1);
-      color: var(--primary);
-      border-radius: 50%;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .benefit-card p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    /* Social Proof Section */
-    .trust {
-      padding: 60px 0;
-      background: #F1F5F9;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .trust-stats {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      flex-wrap: wrap;
-    }
-
-    .stat h4 {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-
-    .stat p {
-      color: var(--text-muted);
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    /* FAQ Section */
-    .faq {
-      padding: 80px 0;
-      background: #ffffff;
-    }
-
-    .faq-wrapper {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      padding: 20px;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-dark);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-answer {
-      padding: 0 20px 20px;
-      color: var(--text-muted);
-      font-size: 15px;
-      display: none;
-    }
-
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-
-    .faq-item.active .faq-question span {
-      transform: rotate(45deg);
-    }
-
-    /* Final CTA / Form */
-    .final-cta {
-      padding: 80px 0;
-      background: var(--bg-dark);
-      color: white;
-      text-align: center;
-    }
-
-    .cta-box {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #1E293B;
-      padding: 40px;
-      border-radius: var(--radius);
-      border: 1px solid #334155;
-    }
-
-    .cta-box h2 {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .cta-box p {
-      color: #94A3B8;
-      margin-bottom: 24px;
-    }
-
-    .form-group {
-      display: flex;
-      gap: 10px;
-      flex-direction: column;
-    }
-
-    .form-group input {
-      padding: 14px 18px;
-      border-radius: 8px;
-      border: 1px solid #475569;
-      background: #0F172A;
-      color: white;
-      font-size: 15px;
-    }
-
-    .form-group button {
-      padding: 14px 24px;
-      border-radius: 8px;
-      border: none;
-      background: var(--accent);
-      color: white;
-      font-weight: 700;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .form-group button:hover {
-      background: #C82323;
-    }
-
-    /* Footer */
-    footer {
-      padding: 30px 0;
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-muted);
-      background: #0F172A;
-      border-top: 1px solid #334155;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .section-heading h2 { font-size: 28px; }
-      .trust-stats { gap: 30px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick n Cheaper Supermarket | Smart Grocery Savings for Mzansi</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#D91C24',
+                            darkRed: '#A80F15',
+                            lightBg: '#FFF5F5',
+                            green: '#16A34A',
+                            darkGreen: '#15803D',
+                            gold: '#FFB800',
+                            charcoal: '#1E1E1E'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-brand {
+            background: linear-gradient(135deg, #D91C24 0%, #A80F15 100%);
+        }
+        .gradient-green {
+            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(217, 28, 36, 0.15);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-brand-red selection:text-white">
 
-  <!-- Navigation -->
-  <header>
-    <div class="container nav-wrapper">
-      <a href="#" class="logo">Pick n <span>Cheaper</span></a>
-      <a href="#claim" class="nav-btn">Get Deals</a>
+    <div class="bg-brand-darkRed text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium flex justify-center items-center gap-2 shadow-inner">
+        <span class="bg-brand-gold text-gray-900 font-extrabold px-2.5 py-0.5 rounded-full text-xs uppercase tracking-wider animate-pulse">Special Offer</span>
+        <span>🎉 Get R50 OFF your basket when you join our Mzansi Savers Club today!</span>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <span class="hero-badge">Inflation-Busting Supermarket</span>
-      <h1>Beat High Grocery Prices Every Single Week</h1>
-      <p>Tired of rising food costs? Shop quality brand essentials, fresh meat, and daily bakery items at direct wholesale prices.</p>
-      <a href="#claim" class="cta-btn">Claim R50 Weekly Voucher
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="bg-brand-red text-white p-2.5 rounded-xl shadow-md group-hover:bg-brand-darkRed transition flex items-center justify-center">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-xl sm:text-2xl text-gray-900 leading-none tracking-tight">Pick <span class="text-brand-red">n Cheaper</span></span>
+                        <span class="text-[10px] text-gray-500 tracking-widest font-bold uppercase">Supermarket</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
+                    <a href="#deals" class="hover:text-brand-red transition">Deals</a>
+                    <a href="#calculator" class="hover:text-brand-red transition">Savings Calculator</a>
+                    <a href="#community" class="hover:text-brand-red transition">Community</a>
+                    <a href="#faqs" class="hover:text-brand-red transition">FAQs</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="flex items-center gap-3">
+                    <a href="#voucher" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-brand-red text-white text-sm font-bold shadow-lg shadow-brand-red/20 hover:bg-brand-darkRed transition transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-ticket mr-2"></i> Get R50 Off Voucher
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#deals" class="block py-2 text-gray-700 font-semibold hover:text-brand-red">Deals</a>
+            <a href="#calculator" class="block py-2 text-gray-700 font-semibold hover:text-brand-red">Savings Calculator</a>
+            <a href="#community" class="block py-2 text-gray-700 font-semibold hover:text-brand-red">Community</a>
+            <a href="#faqs" class="block py-2 text-gray-700 font-semibold hover:text-brand-red">FAQs</a>
+            <a href="#voucher" class="w-full text-center inline-block mt-2 py-3 rounded-xl bg-brand-red text-white font-bold">
+                Get R50 Off Voucher
+            </a>
+        </div>
+    </header>
+
+    <section class="relative bg-gradient-to-b from-brand-lightBg via-white to-white py-12 lg:py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-green-100 text-brand-darkGreen border border-green-200 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-solid fa-flag text-brand-green"></i>
+                        <span>100% Proudly South African Direct Sourcing</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-[1.12]">
+                        Stop Overpaying for Daily Groceries in <span class="text-brand-red underline decoration-brand-gold decoration-4">Mzansi.</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Stretch your household budget further without compromising on quality. Get fresh produce, bakery goods, and everyday staples at guaranteed low prices.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#voucher" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-red text-white font-black text-base shadow-xl shadow-brand-red/30 hover:bg-brand-darkRed transition transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
+                            <span>Claim R50 Off Voucher</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-800 font-bold text-base hover:bg-gray-50 hover:border-gray-300 transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator text-brand-green"></i>
+                            <span>Calculate My Savings</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats Badge -->
+                    <div class="pt-6 border-t border-gray-100 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-black text-brand-red">up to 30%</p>
+                            <p class="text-xs text-gray-500 font-semibold">Cheaper Baskets</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-black text-brand-green">50,000+</p>
+                            <p class="text-xs text-gray-500 font-semibold">Happy Families</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-black text-gray-900">100%</p>
+                            <p class="text-xs text-gray-500 font-semibold">Fresh Guaranteed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Banner Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 relative space-y-6">
+                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                            <div>
+                                <span class="text-xs uppercase font-bold text-gray-400">Weekly Price Lock</span>
+                                <h2 class="text-lg font-black text-gray-900">Mzansi Basket Savers</h2>
+                            </div>
+                            <span class="bg-green-100 text-brand-green font-bold text-xs px-3 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa-solid fa-check-circle"></i> Price Locked
+                            </span>
+                        </div>
+
+                        <!-- Sample Basket Items -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between bg-gray-50 p-3.5 rounded-2xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center text-brand-red font-bold text-lg">🌽</div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-900">Super Maize Meal 10kg</p>
+                                        <p class="text-xs text-gray-500">Everyday Staple</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs line-through text-gray-400">R119.99</span>
+                                    <p class="font-black text-brand-red text-base">R89.99</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between bg-gray-50 p-3.5 rounded-2xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-700 font-bold text-lg">🌻</div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-900">Sunflower Oil 2L</p>
+                                        <p class="text-xs text-gray-500">Pure Golden</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs line-through text-gray-400">R84.99</span>
+                                    <p class="font-black text-brand-red text-base">R59.99</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between bg-gray-50 p-3.5 rounded-2xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-brand-green font-bold text-lg">🍞</div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-900">Fresh Bakery Bread 700g</p>
+                                        <p class="text-xs text-gray-500">Baked Fresh Daily</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs line-through text-gray-400">R18.99</span>
+                                    <p class="font-black text-brand-red text-base">R12.99</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-lightBg p-4 rounded-2xl flex items-center justify-between border border-red-200">
+                            <div>
+                                <p class="text-xs font-bold text-brand-darkRed uppercase">Instant Basket Discount</p>
+                                <p class="text-xs text-gray-600">Saved on 3 items alone</p>
+                            </div>
+                            <span class="text-2xl font-black text-brand-red">R51.00 OFF</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-brand-gold text-xs font-black uppercase tracking-widest bg-white/10 px-3.5 py-1 rounded-full">Understanding Your Daily Pain Points</span>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Rising Food Inflation Hurting Your Monthly Budget?</h2>
+                <p class="text-gray-300 text-base">
+                    Every month, South African households spend more money on fewer essentials. We break down the barrier between affordability and quality.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <!-- Pain Point 1 -->
+                <div class="bg-gray-800 border border-gray-700 p-8 rounded-3xl space-y-4 hover:border-brand-red transition">
+                    <div class="w-14 h-14 bg-red-500/10 text-brand-red rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Skyrocketing Basket Costs</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Prices of basic staples rise while salary budgets remain fixed. Standard supermarket markups make feeding your family an unnecessary financial stress.
+                    </p>
+                </div>
+
+                <!-- Pain Point 2 -->
+                <div class="bg-gray-800 border border-gray-700 p-8 rounded-3xl space-y-4 hover:border-brand-red transition">
+                    <div class="w-14 h-14 bg-red-500/10 text-brand-red rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Sacrificing Brand & Quality</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Being forced to switch to low-tier, tasteless brands or compromise on meat freshness just to afford the register ticket total.
+                    </p>
+                </div>
+
+                <!-- Pain Point 3 -->
+                <div class="bg-gray-800 border border-gray-700 p-8 rounded-3xl space-y-4 hover:border-brand-red transition">
+                    <div class="w-14 h-14 bg-red-500/10 text-brand-red rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Hidden Promotion Gimmicks</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Confusing points schemes and inflated "regular" prices where you only save if you buy massive bulk quantities you don't need.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="deals" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-brand-red font-bold text-xs uppercase tracking-widest bg-red-50 px-3 py-1 rounded-full">Key Benefits</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Why Mzansi Prefers Pick n Cheaper</h2>
+                <p class="text-gray-600 text-base">We prioritize fresh direct sourcing and low operational margins to give you real value.</p>
+            </div>
+
+            <!-- Benefit Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-3xl space-y-4 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-brand-green text-white rounded-2xl flex items-center justify-center text-xl font-bold shadow-md">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">Direct From Farm Produce</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Sourced locally from South African agricultural farmers, removing middleman costs to bring fresh fruit and veg to your table for less.
+                    </p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-3xl space-y-4 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-brand-red text-white rounded-2xl flex items-center justify-center text-xl font-bold shadow-md">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">In-Store Bakery & Butchery</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Enjoy fresh warm bread baked throughout the day and premium grade butcher-cut braai meat prepared daily by certified experts.
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-3xl space-y-4 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold shadow-md">
+                        <i class="fa-solid fa-receipt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">Till Point Convenience</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Pay municipal bills, buy prepaid electricity, purchase airtime, and send instant cash transfers while completing your grocery run.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Promotional Deal Highlights -->
+            <div class="bg-gray-50 rounded-3xl p-6 sm:p-10 border border-gray-200 space-y-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="text-2xl font-black text-gray-900">Featured Weekly Specials</h3>
+                        <p class="text-sm text-gray-500">Unbeatable prices valid this week only</p>
+                    </div>
+
+                    <!-- Category Buttons -->
+                    <div class="flex flex-wrap gap-2">
+                        <button class="deal-filter active px-4 py-2 text-xs font-bold rounded-xl bg-brand-red text-white transition" data-filter="all">All Deals</button>
+                        <button class="deal-filter px-4 py-2 text-xs font-bold rounded-xl bg-white text-gray-700 hover:bg-gray-200 transition" data-filter="pantry">Pantry Staples</button>
+                        <button class="deal-filter px-4 py-2 text-xs font-bold rounded-xl bg-white text-gray-700 hover:bg-gray-200 transition" data-filter="meat">Butchery</button>
+                    </div>
+                </div>
+
+                <!-- Deal Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="deal-container">
+                    <!-- Deal 1 -->
+                    <div class="deal-item bg-white p-6 rounded-2xl border border-gray-200 space-y-4 shadow-sm" data-category="pantry">
+                        <div class="flex justify-between items-start">
+                            <span class="bg-red-100 text-brand-red text-xs font-bold px-2.5 py-1 rounded-md">Save R20</span>
+                            <span class="text-2xl">🍚</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Long Grain White Rice 5kg</h4>
+                            <p class="text-xs text-gray-500">Pantry Essential</p>
+                        </div>
+                        <div class="flex items-baseline justify-between pt-2 border-t border-gray-100">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through">R89.99</span>
+                                <p class="text-2xl font-black text-brand-red">R69.99</p>
+                            </div>
+                            <span class="text-xs font-semibold text-brand-green bg-green-50 px-2 py-1 rounded">In Stock</span>
+                        </div>
+                    </div>
+
+                    <!-- Deal 2 -->
+                    <div class="deal-item bg-white p-6 rounded-2xl border border-gray-200 space-y-4 shadow-sm" data-category="meat">
+                        <div class="flex justify-between items-start">
+                            <span class="bg-red-100 text-brand-red text-xs font-bold px-2.5 py-1 rounded-md">Save R40</span>
+                            <span class="text-2xl">🥩</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Premium Beef Wors per kg</h4>
+                            <p class="text-xs text-gray-500">Fresh Butchery</p>
+                        </div>
+                        <div class="flex items-baseline justify-between pt-2 border-t border-gray-100">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through">R119.99</span>
+                                <p class="text-2xl font-black text-brand-red">R79.99</p>
+                            </div>
+                            <span class="text-xs font-semibold text-brand-green bg-green-50 px-2 py
