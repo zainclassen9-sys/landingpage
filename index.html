@@ -3,31 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pick n Cheaper | Exclusive Social Media Super-Saver Combo</title>
+  <title>Pick n Cheaper | Exclusive Air-Fryer Fresh Chicken Flash Deal</title>
   
-  <!-- Fonts & Icons -->
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
 
-  <!-- CSS Styling -->
   <style>
     :root {
-      --primary-red: #E52E2E;
-      --primary-red-hover: #C82323;
-      --brand-green: #00875A;
-      --brand-green-hover: #006644;
-      --dark-slate: #0F172A;
-      --card-slate: #1E293B;
-      --light-bg: #F8FAFC;
-      --border-color: #E2E8F0;
-      --text-main: #1E293B;
+      --primary: #00875A;
+      --primary-dark: #006644;
+      --accent: #E52E2E;
+      --accent-dark: #C82323;
+      --bg-dark: #0F172A;
+      --card-dark: #1E293B;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
       --text-muted: #64748B;
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --shadow-subtle: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
-      --shadow-hover: 0 20px 35px -5px rgba(0, 0, 0, 0.15);
+      --border: #E2E8F0;
+      --radius: 12px;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --shadow-hero: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
     }
 
     * {
@@ -36,16 +37,17 @@
       padding: 0;
     }
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      color: var(--text-main);
-      background-color: var(--light-bg);
-      line-height: 1.5;
-      overflow-x: hidden;
+    html {
+      scroll-behavior: smooth;
     }
 
-    h1, h2, h3, h4, .font-heading {
-      font-family: 'Montserrat', sans-serif;
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
@@ -55,33 +57,37 @@
     }
 
     .top-bar {
-      background-color: var(--primary-red);
-      color: white;
+      background-color: var(--accent);
+      color: #ffffff;
       text-align: center;
       padding: 10px 15px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
+      letter-spacing: 0.2px;
     }
 
     .timer-badge {
       background: rgba(0, 0, 0, 0.25);
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 20px;
       font-family: monospace;
-      font-size: 15px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     header {
       background: #ffffff;
-      border-bottom: 1px solid var(--border-color);
-      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: var(--shadow-sm);
     }
 
     .header-nav {
@@ -91,33 +97,37 @@
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 900;
-      color: var(--brand-green);
+      color: var(--primary);
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 6px;
+      letter-spacing: -0.5px;
     }
 
     .logo span {
-      color: var(--primary-red);
+      color: var(--accent);
     }
 
-    .social-campaign-tag {
+    .social-badge {
       background: #E6F4EA;
-      color: var(--brand-green-hover);
+      color: var(--primary-dark);
       padding: 6px 14px;
       border-radius: 30px;
       font-size: 12px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.5px;
       border: 1px solid #A3E0BF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--dark-slate) 0%, #1E293B 100%);
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--card-dark) 100%);
       color: white;
       padding: 60px 0 80px;
       position: relative;
@@ -125,7 +135,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 40px;
       align-items: center;
     }
@@ -149,6 +159,7 @@
       line-height: 1.15;
       font-weight: 900;
       margin-bottom: 18px;
+      letter-spacing: -0.8px;
     }
 
     .hero h1 span {
@@ -156,9 +167,10 @@
     }
 
     .hero p {
-      font-size: 18px;
+      font-size: 17px;
       color: #94A3B8;
       margin-bottom: 28px;
+      line-height: 1.6;
     }
 
     .btn-primary {
@@ -166,11 +178,11 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: var(--primary-red);
+      background: var(--accent);
       color: white;
       font-weight: 800;
-      font-size: 18px;
-      padding: 16px 36px;
+      font-size: 17px;
+      padding: 16px 32px;
       border-radius: 50px;
       text-decoration: none;
       border: none;
@@ -178,83 +190,101 @@
       box-shadow: 0 10px 25px -5px rgba(229, 46, 46, 0.5);
       transition: all 0.2s ease;
       width: 100%;
-      max-width: 380px;
+      max-width: 400px;
     }
 
     .btn-primary:hover {
-      background: var(--primary-red-hover);
+      background: var(--accent-dark);
       transform: translateY(-2px);
+      box-shadow: 0 14px 28px -5px rgba(229, 46, 46, 0.6);
     }
 
     .hero-card {
       background: #ffffff;
-      color: var(--text-main);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      color: var(--text-dark);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-hero);
       position: relative;
     }
 
     .hero-card-badge {
       position: absolute;
-      top: -15px;
+      top: -14px;
       right: 20px;
-      background: var(--brand-green);
+      background: var(--primary);
       color: white;
       font-weight: 800;
       font-size: 12px;
       padding: 6px 16px;
       border-radius: 20px;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .combo-showcase {
       text-align: center;
-      padding: 20px 0;
+      padding: 10px 0 0;
     }
 
     .combo-img-holder {
       width: 100%;
-      height: 200px;
+      height: 210px;
       background: #F1F5F9;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       border: 2px dashed #CBD5E1;
       position: relative;
+      overflow: hidden;
+    }
+
+    .product-tag-chip {
+      position: absolute;
+      bottom: 12px;
+      background: var(--bg-dark);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .price-tag {
       display: flex;
       align-items: baseline;
       justify-content: center;
-      gap: 12px;
-      margin: 15px 0;
+      gap: 10px;
+      margin: 14px 0;
     }
 
     .price-main {
-      font-size: 44px;
+      font-size: 46px;
       font-weight: 900;
-      color: var(--brand-green);
+      color: var(--primary);
+      line-height: 1;
     }
 
     .price-old {
       font-size: 20px;
       color: var(--text-muted);
       text-decoration: line-through;
+      font-weight: 600;
     }
 
     .save-badge {
-      background: var(--primary-red);
+      background: var(--accent);
       color: white;
       font-size: 12px;
       font-weight: 800;
-      padding: 4px 8px;
+      padding: 4px 10px;
       border-radius: 6px;
-      vertical-align: middle;
     }
 
     .benefits {
@@ -264,12 +294,12 @@
 
     .section-title {
       text-align: center;
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto 50px;
     }
 
     .section-title span {
-      color: var(--brand-green);
+      color: var(--primary);
       font-weight: 800;
       font-size: 13px;
       letter-spacing: 1.5px;
@@ -281,7 +311,8 @@
     .section-title h2 {
       font-size: 36px;
       font-weight: 800;
-      color: var(--dark-slate);
+      color: var(--text-dark);
+      letter-spacing: -0.5px;
     }
 
     .benefit-grid {
@@ -291,23 +322,24 @@
     }
 
     .benefit-card {
-      background: var(--light-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 32px 24px;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 26px;
       transition: all 0.3s ease;
     }
 
     .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-subtle);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: #CBD5E1;
     }
 
     .benefit-icon {
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       background: rgba(0, 135, 90, 0.1);
-      color: var(--brand-green);
+      color: var(--primary);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -318,12 +350,13 @@
     .benefit-card h3 {
       font-size: 20px;
       margin-bottom: 10px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .benefit-card p {
       color: var(--text-muted);
       font-size: 15px;
+      line-height: 1.6;
     }
 
     .calculator-section {
@@ -332,13 +365,13 @@
     }
 
     .calc-box {
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto;
       background: white;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 40px;
-      box-shadow: var(--shadow-subtle);
-      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
     }
 
     .slider-container {
@@ -348,8 +381,9 @@
     .slider-labels {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     input[type=range] {
@@ -358,34 +392,38 @@
       border-radius: 5px;
       background: #CBD5E1;
       outline: none;
-      accent-color: var(--brand-green);
+      accent-color: var(--primary);
+      cursor: pointer;
     }
 
     .calc-results {
       background: #E6F4EA;
       border: 1px solid #A3E0BF;
-      border-radius: var(--radius-md);
-      padding: 20px;
+      border-radius: var(--radius);
+      padding: 24px;
       text-align: center;
+      margin-top: 25px;
     }
 
     .calc-results p {
-      color: var(--brand-green-hover);
-      font-weight: 700;
-      font-size: 14px;
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 13px;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .calc-results h3 {
-      font-size: 38px;
-      color: var(--brand-green);
+      font-size: 40px;
+      color: var(--primary);
       font-weight: 900;
+      margin-top: 4px;
     }
 
     .proof-section {
-      padding: 60px 0;
+      padding: 70px 0;
       background: white;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border);
     }
 
     .proof-stats {
@@ -394,22 +432,83 @@
       flex-wrap: wrap;
       gap: 30px;
       text-align: center;
+      margin-bottom: 60px;
     }
 
     .stat-item h4 {
-      font-size: 38px;
+      font-size: 40px;
       font-weight: 900;
-      color: var(--primary-red);
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
     }
 
     .stat-item p {
       color: var(--text-muted);
       font-weight: 600;
+      font-size: 15px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .review-stars {
+      color: #F59E0B;
+      display: flex;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .review-card p {
+      font-size: 14px;
+      color: var(--text-dark);
+      font-style: italic;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .reviewer-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .reviewer-info h5 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .reviewer-info span {
+      font-size: 12px;
+      color: var(--text-muted);
     }
 
     .faq-section {
       padding: 80px 0;
-      background: var(--light-bg);
+      background: var(--bg-light);
     }
 
     .faq-container {
@@ -419,21 +518,22 @@
 
     .faq-item {
       background: white;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       margin-bottom: 16px;
       overflow: hidden;
+      transition: all 0.2s ease;
     }
 
     .faq-question {
       width: 100%;
-      padding: 20px;
+      padding: 20px 24px;
       background: none;
       border: none;
       text-align: left;
       font-weight: 700;
       font-size: 16px;
-      color: var(--dark-slate);
+      color: var(--text-dark);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -441,10 +541,16 @@
     }
 
     .faq-answer {
-      padding: 0 20px 20px;
+      padding: 0 24px 20px;
       color: var(--text-muted);
       font-size: 15px;
       display: none;
+      line-height: 1.6;
+    }
+
+    .faq-item.active {
+      border-color: #CBD5E1;
+      box-shadow: var(--shadow-sm);
     }
 
     .faq-item.active .faq-answer {
@@ -453,16 +559,16 @@
 
     .conversion-section {
       padding: 80px 0;
-      background: var(--dark-slate);
+      background: var(--bg-dark);
       color: white;
     }
 
     .form-card {
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
-      background: var(--card-slate);
+      background: var(--card-dark);
       padding: 40px;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       border: 1px solid #334155;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
@@ -471,28 +577,31 @@
       font-size: 28px;
       text-align: center;
       margin-bottom: 8px;
+      font-weight: 800;
     }
 
     .form-card p {
       color: #94A3B8;
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       font-size: 14px;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .form-group label {
       display: block;
       font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 6px;
+      font-weight: 700;
+      margin-bottom: 8px;
       color: #CBD5E1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .form-group input {
+    .form-group input, .form-group select {
       width: 100%;
       padding: 14px 16px;
       border-radius: 8px;
@@ -501,10 +610,12 @@
       color: white;
       font-size: 15px;
       outline: none;
+      font-family: inherit;
     }
 
-    .form-group input:focus {
-      border-color: var(--brand-green);
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(0, 135, 90, 0.25);
     }
 
     footer {
@@ -516,215 +627,263 @@
       border-top: 1px solid #1E293B;
     }
 
-    /* Popup Modal */
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       z-index: 2000;
       align-items: center;
       justify-content: center;
       padding: 20px;
+      backdrop-filter: blur(4px);
     }
 
     .modal-content {
       background: white;
-      color: var(--text-main);
-      max-width: 450px;
+      color: var(--text-dark);
+      max-width: 480px;
       width: 100%;
-      border-radius: var(--radius-lg);
-      padding: 32px;
+      border-radius: var(--radius);
+      padding: 36px;
       text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .barcode-holder {
+      background: #F1F5F9;
+      border: 2px dashed #94A3B8;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-family: monospace;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: var(--bg-dark);
     }
 
     @media (max-width: 768px) {
       .hero-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 32px; }
-      .price-main { font-size: 36px; }
+      .price-main { font-size: 38px; }
+      .form-card { padding: 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Urgency Banner -->
   <div class="top-bar">
-    <span>🔥 SOCIAL MEDIA EXCLUSIVE: Offer Ends In</span>
-    <span class="timer-badge" id="countdown">11:45:00</span>
+    <span>🔥 SOCIAL MEDIA FLASH DEAL: Offer Ends In</span>
+    <span class="timer-badge" id="countdown">08:42:15</span>
   </div>
 
-  <!-- Focused Header -->
   <header>
     <div class="container header-nav">
       <a href="#" class="logo">
         Pick n <span>Cheaper</span>
       </a>
-      <span class="social-campaign-tag">Facebook & TikTok Promo</span>
+      <span class="social-badge">
+        <i data-lucide="zap" size="14"></i> Social Special - Limited Stock
+      </span>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
         <div class="hero-tag">
-          <i data-lucide="sparkles" size="16"></i> Cape Town Super-Saver Deal
+          <i data-lucide="sparkles" size="16"></i> TikTok & IG Exclusive Campaign
         </div>
-        <h1>Stop Overpaying for Your <span>Weekly Essentials</span></h1>
-        <p>Claim our viral social media grocery bundle today. Get 2kg fresh chicken breasts, 5kg potatoes, and 2kg white rice delivered or ready for instant pickup.</p>
+        <h1>2kg Fresh Chicken Breast Pack for <span>R99.99</span></h1>
+        <p>Slash your weekly meal prep costs! Prime, air-fryer ready fresh chicken breasts sourced directly from local Western Cape farms. No added water or preservatives.</p>
         <a href="#claim-form" class="btn-primary">
-          Claim R199 Voucher <i data-lucide="arrow-right"></i>
+          Claim Your R60 Voucher Coupon <i data-lucide="arrow-right" size="18"></i>
         </a>
       </div>
 
-      <!-- Combo Spotlight Card -->
       <div class="hero-card">
-        <span class="hero-card-badge">Save R90 Today</span>
+        <span class="hero-card-badge">Save R60 Today</span>
         <div class="combo-showcase">
           <div class="combo-img-holder">
-            <i data-lucide="shopping-bag" size="48" color="#00875A"></i>
-            <span style="font-weight: 700; margin-top: 8px; color: var(--dark-slate);">Weekly Essentials Bundle</span>
+            <i data-lucide="drumstick" size="64" color="#00875A"></i>
+            <span style="font-weight: 800; margin-top: 10px; font-size: 18px; color: var(--bg-dark);">Prime Fresh Chicken Breast</span>
+            <div class="product-tag-chip">
+              <i data-lucide="flame" size="12" color="#FF5252"></i> High Protein • Air-Fryer Ready
+            </div>
           </div>
-          <h3 style="font-size: 22px;">The R199 Super-Saver Combo</h3>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">2kg Fresh Chicken + 5kg Potatoes + 2kg Rice</p>
           
           <div class="price-tag">
-            <span class="price-main">R199</span>
-            <span class="price-old">R289</span>
-            <span class="save-badge">SAVE R90</span>
+            <span class="price-main">R99.99</span>
+            <span class="price-old">R159.99</span>
+            <span class="save-badge">37% OFF</span>
           </div>
 
-          <p style="font-size: 12px; color: var(--primary-red); font-weight: 700;">
-            ⚠️ Only 42 Vouchers Remaining for Cape Town Stores
+          <p style="font-size: 13px; color: var(--accent); font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <i data-lucide="alert-circle" size="15"></i> Only 38 Vouchers Left for Cape Town Branches
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Benefits Section -->
   <section class="benefits">
     <div class="container">
       <div class="section-title">
-        <span>WHY PICK N CHEAPER?</span>
-        <h2>Designed for Budget-Conscious Shoppers</h2>
+        <span>WHY CAPE TOWN LOVES THIS DEAL</span>
+        <h2>High Quality. Low Prices. Zero Compromise.</h2>
       </div>
 
       <div class="benefit-grid">
         <div class="benefit-card">
-          <div class="benefit-icon"><i data-lucide="trending-down"></i></div>
-          <h3>Lowest Everyday Prices</h3>
-          <p>We source directly from local Western Cape farmers to keep store markups at an absolute minimum.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon"><i data-lucide="check-circle-2"></i></div>
+          <div class="benefit-icon"><i data-lucide="shield-check" size="26"></i></div>
           <h3>Freshness Guaranteed</h3>
-          <p>If your produce or chicken isn't 100% fresh, bring it back for a no-questions-asked full replacement.</p>
+          <p>Hand-trimmed fresh chicken delivered daily to store cold-rooms. If you're not satisfied, we refund 100% no questions asked.</p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-icon"><i data-lucide="zap"></i></div>
-          <h3>Instant Barcode Voucher</h3>
-          <p>No waiting in queues or physical clipping. Show your phone voucher at any till point to instantly save.</p>
+          <div class="benefit-icon"><i data-lucide="activity" size="26"></i></div>
+          <h3>Macro & Air-Fryer Friendly</h3>
+          <p>Lean, high-protein chicken breast cutlets with zero water plumpers or preservatives. Perfect for quick weekly meal prepping.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon"><i data-lucide="tag" size="26"></i></div>
+          <h3>Unbeatable Everyday Value</h3>
+          <p>By cutting out wholesale middlemen, Pick n Cheaper brings farm-gate pricing straight to your local Cape Town checkout.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Savings Calculator -->
   <section class="calculator-section">
     <div class="container">
       <div class="section-title">
-        <span>INTERACTIVE SAVINGS ESTIMATOR</span>
+        <span>MEAL PREP SAVINGS ESTIMATOR</span>
         <h2>Calculate Your Monthly Savings</h2>
       </div>
 
       <div class="calc-box">
         <div class="slider-container">
           <div class="slider-labels">
-            <span>Weekly Grocery Spend:</span>
-            <span id="spend-display" style="color: var(--brand-green); font-size: 20px;">R1,500</span>
+            <span>Packs Consumed Per Week:</span>
+            <span id="packs-display" style="color: var(--primary); font-size: 20px; font-weight: 900;">2 Packs (4kg)</span>
           </div>
-          <input type="range" id="spend-slider" min="500" max="5000" step="100" value="1500" oninput="calculateSavings()">
+          <input type="range" id="packs-slider" min="1" max="10" step="1" value="2" oninput="calculateSavings()">
         </div>
 
         <div class="calc-results">
-          <p>Estimated Monthly Savings with Pick n Cheaper</p>
-          <h3 id="savings-display">R360 / month</h3>
+          <p>Estimated Monthly Grocery Savings</p>
+          <h3 id="savings-display">R480 / month</h3>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social Proof -->
   <section class="proof-section">
     <div class="container">
       <div class="proof-stats">
         <div class="stat-item">
-          <h4>15,000+</h4>
-          <p>Vouchers Claimed This Month</p>
+          <h4>12,400+</h4>
+          <p>Vouchers Claimed in Cape Town</p>
         </div>
         <div class="stat-item">
-          <h4>R2.5 Million</h4>
-          <p>Saved by Cape Town Shoppers</p>
+          <h4>R740,000+</h4>
+          <p>Saved by Local Shoppers</p>
         </div>
         <div class="stat-item">
-          <h4>4.8 / 5 ⭐</h4>
-          <p>Over 1,200 Social Reviews</p>
+          <h4>4.9 / 5 ⭐</h4>
+          <p>Based on 1,850+ Social Reviews</p>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Saw this deal on TikTok and claimed my barcode. Went to the Athlone store and saved R60 instantly on my chicken prep!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">TS</div>
+            <div class="reviewer-info">
+              <h5>Tariq S.</h5>
+              <span>Athlone, Cape Town</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Super fresh chicken breasts with zero water weight! Air-frys so crisp. Best deal in CPT right now."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">ML</div>
+            <div class="reviewer-info">
+              <h5>Michelle L.</h5>
+              <span>Bellville, Cape Town</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"The SMS barcode came through right away. Showed it on my phone at till point and got the discount!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">JM</div>
+            <div class="reviewer-info">
+              <h5>Jaco M.</h5>
+              <span>Milnerton, Cape Town</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Accordion -->
   <section class="faq-section">
     <div class="container">
       <div class="section-title">
-        <span>CLEAR ANSWERS</span>
+        <span>HAVE QUESTIONS?</span>
         <h2>Frequently Asked Questions</h2>
       </div>
 
       <div class="faq-container">
         <div class="faq-item">
           <button class="faq-question">
-            How do I redeem the R199 combo voucher?
-            <i data-lucide="chevron-down"></i>
+            How do I redeem my R60 voucher coupon?
+            <i data-lucide="chevron-down" size="20"></i>
           </button>
           <div class="faq-answer">
-            Fill out the form below. We will instantly SMS/WhatsApp your unique digital barcode. Simply present this barcode to the cashier at checkout.
+            Fill out the voucher claim form below. We will immediately generate a unique barcode on-screen and send a copy via SMS or WhatsApp. Simply show this digital barcode to the cashier at checkout.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            Which Pick n Cheaper stores accept this voucher?
-            <i data-lucide="chevron-down"></i>
+            Which Cape Town branches accept this coupon?
+            <i data-lucide="chevron-down" size="20"></i>
           </button>
           <div class="faq-answer">
-            This voucher is valid across all Pick n Cheaper supermarket branches in the Greater Cape Town area.
+            This social special is accepted at all major Pick n Cheaper Cape Town branches including Athlone, Bellville, Mitchells Plain, Wynberg, and Milnerton stores.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            When does this offer expire?
-            <i data-lucide="chevron-down"></i>
+            Is there a limit on how many packs I can buy?
+            <i data-lucide="chevron-down" size="20"></i>
           </button>
           <div class="faq-answer">
-            This social media promotion is capped at 500 vouchers and expires strictly at midnight tonight or once stock runs out.
+            Due to high demand and limited stock allocation for this social campaign, each voucher allows up to 2 packs per customer per day at the R99.99 promotional rate.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Conversion Form Section -->
   <section class="conversion-section" id="claim-form">
     <div class="container">
       <div class="form-card">
-        <h2>Claim Your R199 Combo Barcode</h2>
-        <p>Enter your details below to receive your voucher code directly via SMS/WhatsApp.</p>
+        <h2>Claim Your R60 Voucher Coupon</h2>
+        <p>Enter your contact details below to instantly generate your digital barcode voucher.</p>
 
         <form onsubmit="handleFormSubmit(event)">
           <div class="form-group">
@@ -733,45 +892,60 @@
           </div>
 
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="name@example.com" required>
-          </div>
-
-          <div class="form-group">
-            <label for="phone">WhatsApp / Mobile Number</label>
+            <label for="email">Mobile / WhatsApp Number</label>
             <input type="tel" id="phone" placeholder="082 123 4567" required>
           </div>
 
+          <div class="form-group">
+            <label for="location">Preferred Pickup Branch</label>
+            <select id="location" required>
+              <option value="" disabled selected>Select your local store</option>
+              <option value="Athlone Superstore">Athlone Superstore</option>
+              <option value="Bellville Commercial Center">Bellville Center</option>
+              <option value="Mitchells Plain Promenade">Mitchells Plain</option>
+              <option value="Wynberg Main Road">Wynberg Main Rd</option>
+              <option value="Milnerton Retail Park">Milnerton Retail Park</option>
+            </select>
+          </div>
+
           <button type="submit" class="btn-primary" style="width: 100%; max-width: 100%; margin-top: 10px;">
-            Send My Barcode Voucher
+            Generate Barcode Voucher <i data-lucide="zap" size="18"></i>
           </button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Pick n Cheaper Supermarkets Cape Town. All Rights Reserved. | <a href="#" style="color: #94A3B8;">Privacy Policy</a> | <a href="#" style="color: #94A3B8;">Terms of Service</a></p>
+      <p>&copy; 2026 Pick n Cheaper Supermarkets Cape Town. All Rights Reserved. | <a href="#" style="color: #94A3B8;">Privacy Policy</a> | <a href="#" style="color: #94A3B8;">Terms & Conditions</a></p>
     </div>
   </footer>
 
-  <!-- Confirmation Modal -->
+  <!-- Modal Confirmation Window -->
   <div class="modal" id="successModal">
     <div class="modal-content">
       <div style="background: #E6F4EA; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
         <i data-lucide="check" size="32" color="#00875A"></i>
       </div>
-      <h3 style="font-size: 24px; margin-bottom: 8px;">Voucher Generated!</h3>
-      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">
-        We have sent your R199 Combo Barcode to your WhatsApp number and email. Show it at any Pick n Cheaper till point!
+      <h3 style="font-size: 24px; margin-bottom: 8px; font-weight: 800;">Voucher Ready!</h3>
+      <p style="color: var(--text-muted); font-size: 14px;">
+        Present this barcode at checkout to claim your <strong>2kg Chicken Pack for R99.99</strong>.
       </p>
-      <button class="btn-primary" onclick="closeModal()" style="width: 100%; max-width: 100%;">Got It!</button>
+
+      <div class="barcode-holder">
+        ||| | |||| | ||| |||| |
+        <div style="font-size: 12px; font-family: sans-serif; letter-spacing: 0; color: var(--text-muted); margin-top: 6px;">PNC-CHX-9999-CPT</div>
+      </div>
+
+      <p style="font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 20px;">
+        ⏱️ Voucher valid for 24 hours at selected store.
+      </p>
+
+      <button class="btn-primary" onclick="closeModal()" style="width: 100%; max-width: 100%;">Done</button>
     </div>
   </div>
 
-  <!-- JavaScript Logic -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
@@ -792,23 +966,24 @@
           String(seconds).padStart(2, '0');
 
         if (--timer < 0) {
-          timer = durationSeconds; // Reset loop
+          timer = durationSeconds;
         }
       }, 1000);
     }
-    startTimer(42300); // 11h 45m
+    startTimer(31335); // 08h 42m 15s
 
     // 2. Savings Calculator Logic
     function calculateSavings() {
-      const spend = document.getElementById('spend-slider').value;
-      document.getElementById('spend-display').textContent = 'R' + Number(spend).toLocaleString();
+      const packs = document.getElementById('packs-slider').value;
+      const textDisplay = packs == 1 ? '1 Pack (2kg)' : packs + ' Packs (' + (packs * 2) + 'kg)';
+      document.getElementById('packs-display').textContent = textDisplay;
       
-      // Calculate ~24% estimated monthly savings
-      const monthlySavings = Math.round((spend * 4) * 0.24);
+      // Save R60 per pack * 4 weeks in a month
+      const monthlySavings = packs * 60 * 4;
       document.getElementById('savings-display').textContent = 'R' + monthlySavings.toLocaleString() + ' / month';
     }
 
-    // 3. FAQ Accordion Logic
+    // 3. FAQ Accordion Handler
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
         const item = button.parentElement;
@@ -816,7 +991,7 @@
       });
     });
 
-    // 4. Form Submit Logic
+    // 4. Form Submission and Modal Trigger
     function handleFormSubmit(event) {
       event.preventDefault();
       document.getElementById('successModal').style.display = 'flex';
