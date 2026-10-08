@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pick n Cheaper | Exclusive Air-Fryer Fresh Chicken Flash Deal</title>
+  <title>Pick n Cheaper | Exclusive Social Media Combo Meal Prep Special</title>
   
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +27,7 @@
       --border: #E2E8F0;
       --radius: 12px;
       --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
       --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
       --shadow-hero: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
     }
@@ -56,6 +57,7 @@
       padding: 0 20px;
     }
 
+    /* Top Urgency Banner */
     .top-bar {
       background-color: var(--accent);
       color: #ffffff;
@@ -80,6 +82,7 @@
       letter-spacing: 1px;
     }
 
+    /* Minimalist Conversion Header */
     header {
       background: #ffffff;
       border-bottom: 1px solid var(--border);
@@ -126,6 +129,7 @@
       gap: 6px;
     }
 
+    /* Hero Section */
     .hero {
       background: linear-gradient(135deg, var(--bg-dark) 0%, var(--card-dark) 100%);
       color: white;
@@ -199,6 +203,7 @@
       box-shadow: 0 14px 28px -5px rgba(229, 46, 46, 0.6);
     }
 
+    /* Product Spotlight Card */
     .hero-card {
       background: #ffffff;
       color: var(--text-dark);
@@ -229,7 +234,7 @@
 
     .combo-img-holder {
       width: 100%;
-      height: 210px;
+      height: 220px;
       background: #F1F5F9;
       border-radius: var(--radius);
       display: flex;
@@ -240,6 +245,15 @@
       border: 2px dashed #CBD5E1;
       position: relative;
       overflow: hidden;
+      padding: 15px;
+    }
+
+    .combo-icons-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 8px;
     }
 
     .product-tag-chip {
@@ -287,6 +301,7 @@
       border-radius: 6px;
     }
 
+    /* Benefits Section */
     .benefits {
       padding: 80px 0;
       background: #ffffff;
@@ -359,6 +374,7 @@
       line-height: 1.6;
     }
 
+    /* Interactive Estimator */
     .calculator-section {
       padding: 80px 0;
       background: #F1F5F9;
@@ -370,7 +386,7 @@
       background: white;
       border-radius: var(--radius);
       padding: 40px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow);
       border: 1px solid var(--border);
     }
 
@@ -396,30 +412,50 @@
       cursor: pointer;
     }
 
-    .calc-results {
-      background: #E6F4EA;
-      border: 1px solid #A3E0BF;
-      border-radius: var(--radius);
-      padding: 24px;
-      text-align: center;
+    .calc-grid-results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
       margin-top: 25px;
     }
 
-    .calc-results p {
+    .calc-stat-box {
+      background: #E6F4EA;
+      border: 1px solid #A3E0BF;
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .calc-stat-box.secondary {
+      background: #F1F5F9;
+      border-color: #CBD5E1;
+    }
+
+    .calc-stat-box p {
       color: var(--primary-dark);
       font-weight: 800;
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .calc-results h3 {
-      font-size: 40px;
+    .calc-stat-box.secondary p {
+      color: var(--text-muted);
+    }
+
+    .calc-stat-box h3 {
+      font-size: 32px;
       color: var(--primary);
       font-weight: 900;
       margin-top: 4px;
     }
 
+    .calc-stat-box.secondary h3 {
+      color: var(--text-dark);
+    }
+
+    /* Proof Section */
     .proof-section {
       padding: 70px 0;
       background: white;
@@ -506,6 +542,7 @@
       color: var(--text-muted);
     }
 
+    /* FAQ Section */
     .faq-section {
       padding: 80px 0;
       background: var(--bg-light);
@@ -557,6 +594,7 @@
       display: block;
     }
 
+    /* Voucher Claim Form (Conversion Zone) */
     .conversion-section {
       padding: 80px 0;
       background: var(--bg-dark);
@@ -627,6 +665,7 @@
       border-top: 1px solid #1E293B;
     }
 
+    /* Digital Barcode Modal */
     .modal {
       display: none;
       position: fixed;
@@ -669,128 +708,148 @@
       .hero h1 { font-size: 32px; }
       .price-main { font-size: 38px; }
       .form-card { padding: 24px; }
+      .calc-grid-results { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Urgency Countdown Header Bar -->
   <div class="top-bar">
-    <span>🔥 SOCIAL MEDIA FLASH DEAL: Offer Ends In</span>
-    <span class="timer-badge" id="countdown">08:42:15</span>
+    <span>🔥 SOCIAL EXCLUSIVE OFFER - VALID 48 HOURS ONLY</span>
+    <span class="timer-badge" id="countdown">23:45:12</span>
   </div>
 
+  <!-- Minimalist Navigation Header -->
   <header>
     <div class="container header-nav">
       <a href="#" class="logo">
         Pick n <span>Cheaper</span>
       </a>
       <span class="social-badge">
-        <i data-lucide="zap" size="14"></i> Social Special - Limited Stock
+        <i data-lucide="zap" size="14"></i> Exclusive TikTok & IG Special
       </span>
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
         <div class="hero-tag">
-          <i data-lucide="sparkles" size="16"></i> TikTok & IG Exclusive Campaign
+          <i data-lucide="sparkles" size="16"></i> Cape Town Budget-Conscious Household Special
         </div>
-        <h1>2kg Fresh Chicken Breast Pack for <span>R99.99</span></h1>
-        <p>Slash your weekly meal prep costs! Prime, air-fryer ready fresh chicken breasts sourced directly from local Western Cape farms. No added water or preservatives.</p>
+        <h1>Feed Your Family For Less: <span>Exclusive Social Combo!</span></h1>
+        <p>Slash your weekly grocery bill with our high-protein meal prep combo. Get 1kg of local, air-fryer ready fresh chicken breasts PLUS a 2kg bag of South African potatoes for under R100!</p>
         <a href="#claim-form" class="btn-primary">
-          Claim Your R60 Voucher Coupon <i data-lucide="arrow-right" size="18"></i>
+          Claim My R99.99 Combo Voucher <i data-lucide="arrow-right" size="18"></i>
         </a>
       </div>
 
+      <!-- Hero Product Spotlight Card -->
       <div class="hero-card">
-        <span class="hero-card-badge">Save R60 Today</span>
+        <span class="hero-card-badge">Save R90 Today</span>
         <div class="combo-showcase">
           <div class="combo-img-holder">
-            <i data-lucide="drumstick" size="64" color="#00875A"></i>
-            <span style="font-weight: 800; margin-top: 10px; font-size: 18px; color: var(--bg-dark);">Prime Fresh Chicken Breast</span>
+            <div class="combo-icons-row">
+              <i data-lucide="drumstick" size="54" color="#00875A"></i>
+              <span style="font-size: 24px; font-weight: 900; color: #94A3B8;">+</span>
+              <i data-lucide="utensils" size="54" color="#00875A"></i>
+            </div>
+            <span style="font-weight: 800; font-size: 17px; color: var(--bg-dark); margin-top: 4px;">
+              1kg Chicken Breast + 2kg Potato Bag
+            </span>
             <div class="product-tag-chip">
-              <i data-lucide="flame" size="12" color="#FF5252"></i> High Protein • Air-Fryer Ready
+              <i data-lucide="flame" size="12" color="#FF5252"></i> High Protein • 6 Servings Ready
             </div>
           </div>
           
           <div class="price-tag">
             <span class="price-main">R99.99</span>
-            <span class="price-old">R159.99</span>
-            <span class="save-badge">37% OFF</span>
+            <span class="price-old">R189.99</span>
+            <span class="save-badge">47% OFF</span>
           </div>
 
           <p style="font-size: 13px; color: var(--accent); font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            <i data-lucide="alert-circle" size="15"></i> Only 38 Vouchers Left for Cape Town Branches
+            <i data-lucide="users" size="15"></i> Over 2,400 vouchers claimed today in Cape Town
           </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Value Proposition / Benefits Section -->
   <section class="benefits">
     <div class="container">
       <div class="section-title">
-        <span>WHY CAPE TOWN LOVES THIS DEAL</span>
-        <h2>High Quality. Low Prices. Zero Compromise.</h2>
+        <span>WHY CAPE TOWN TRUSTS PICK N CHEAPER</span>
+        <h2>Low Everyday Prices. Fresh & Affordable.</h2>
       </div>
 
       <div class="benefit-grid">
         <div class="benefit-card">
-          <div class="benefit-icon"><i data-lucide="shield-check" size="26"></i></div>
-          <h3>Freshness Guaranteed</h3>
-          <p>Hand-trimmed fresh chicken delivered daily to store cold-rooms. If you're not satisfied, we refund 100% no questions asked.</p>
+          <div class="benefit-icon"><i data-lucide="piggy-bank" size="26"></i></div>
+          <h3>Low Everyday Prices</h3>
+          <p>We work directly with Western Cape farmers to eliminate distributor markups, bringing unbeatable farm-gate savings straight to your basket.</p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-icon"><i data-lucide="activity" size="26"></i></div>
-          <h3>Macro & Air-Fryer Friendly</h3>
-          <p>Lean, high-protein chicken breast cutlets with zero water plumpers or preservatives. Perfect for quick weekly meal prepping.</p>
+          <div class="benefit-icon"><i data-lucide="badge-percent" size="26"></i></div>
+          <h3>Weekly Specials</h3>
+          <p>Exclusive deals designed for budget-conscious families. High-volume staples like chicken, fresh produce, and meal-prep essentials discounted every week.</p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-icon"><i data-lucide="tag" size="26"></i></div>
-          <h3>Unbeatable Everyday Value</h3>
-          <p>By cutting out wholesale middlemen, Pick n Cheaper brings farm-gate pricing straight to your local Cape Town checkout.</p>
+          <div class="benefit-icon"><i data-lucide="sparkle" size="26"></i></div>
+          <h3>Fresh & Affordable</h3>
+          <p>Hand-trimmed 100% prime chicken breast cutlets and grade-A local potatoes delivered daily. Zero compromises on quality or freshness.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Interactive Meal Savings & Portion Estimator -->
   <section class="calculator-section">
     <div class="container">
       <div class="section-title">
-        <span>MEAL PREP SAVINGS ESTIMATOR</span>
-        <h2>Calculate Your Monthly Savings</h2>
+        <span>INTERACTIVE PORTION CALCULATOR</span>
+        <h2>Calculate Your Per-Serving Savings</h2>
       </div>
 
       <div class="calc-box">
         <div class="slider-container">
           <div class="slider-labels">
-            <span>Packs Consumed Per Week:</span>
-            <span id="packs-display" style="color: var(--primary); font-size: 20px; font-weight: 900;">2 Packs (4kg)</span>
+            <span>Combos Purchased:</span>
+            <span id="packs-display" style="color: var(--primary); font-size: 20px; font-weight: 900;">1 Combo (3kg Total)</span>
           </div>
-          <input type="range" id="packs-slider" min="1" max="10" step="1" value="2" oninput="calculateSavings()">
+          <input type="range" id="packs-slider" min="1" max="6" step="1" value="1" oninput="calculateSavings()">
         </div>
 
-        <div class="calc-results">
-          <p>Estimated Monthly Grocery Savings</p>
-          <h3 id="savings-display">R480 / month</h3>
+        <div class="calc-grid-results">
+          <div class="calc-stat-box">
+            <p>Cost Per High-Protein Serving</p>
+            <h3 id="cost-per-meal">R16.60</h3>
+          </div>
+          <div class="calc-stat-box secondary">
+            <p>Total Savings vs Normal Price</p>
+            <h3 id="total-savings">R90.00</h3>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Social Proof & Review Section -->
   <section class="proof-section">
     <div class="container">
       <div class="proof-stats">
         <div class="stat-item">
-          <h4>12,400+</h4>
-          <p>Vouchers Claimed in Cape Town</p>
+          <h4>2,400+</h4>
+          <p>Combos Claimed Today</p>
         </div>
         <div class="stat-item">
-          <h4>R740,000+</h4>
-          <p>Saved by Local Shoppers</p>
+          <h4>R216,000+</h4>
+          <p>Saved by CPT Shoppers</p>
         </div>
         <div class="stat-item">
           <h4>4.9 / 5 ⭐</h4>
@@ -801,23 +860,23 @@
       <div class="reviews-grid">
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Saw this deal on TikTok and claimed my barcode. Went to the Athlone store and saved R60 instantly on my chicken prep!"</p>
+          <p>"Claimed my voucher on Instagram and picked it up at the Wynberg branch. The chicken breast quality is amazing and you can't beat a 2kg potato bag for R99 combo!"</p>
           <div class="reviewer">
-            <div class="reviewer-avatar">TS</div>
+            <div class="reviewer-avatar">AZ</div>
             <div class="reviewer-info">
-              <h5>Tariq S.</h5>
-              <span>Athlone, Cape Town</span>
+              <h5>Ayesha Z.</h5>
+              <span>Wynberg, Cape Town</span>
             </div>
           </div>
         </div>
 
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Super fresh chicken breasts with zero water weight! Air-frys so crisp. Best deal in CPT right now."</p>
+          <p>"Meal prepping for my fitness goals usually costs a fortune. This combo gives me 6 huge high-protein meals for R16 each. Absolute game changer!"</p>
           <div class="reviewer">
-            <div class="reviewer-avatar">ML</div>
+            <div class="reviewer-avatar">KD</div>
             <div class="reviewer-info">
-              <h5>Michelle L.</h5>
+              <h5>Kevyn D.</h5>
               <span>Bellville, Cape Town</span>
             </div>
           </div>
@@ -825,12 +884,12 @@
 
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"The SMS barcode came through right away. Showed it on my phone at till point and got the discount!"</p>
+          <p>"Got the barcode on WhatsApp right after submitting the form. Staff at Athlone store scanned it easily. Super fast and easy!"</p>
           <div class="reviewer">
-            <div class="reviewer-avatar">JM</div>
+            <div class="reviewer-avatar">NP</div>
             <div class="reviewer-info">
-              <h5>Jaco M.</h5>
-              <span>Milnerton, Cape Town</span>
+              <h5>Nomalanga P.</h5>
+              <span>Athlone, Cape Town</span>
             </div>
           </div>
         </div>
@@ -838,6 +897,7 @@
     </div>
   </section>
 
+  <!-- FAQ Accordion -->
   <section class="faq-section">
     <div class="container">
       <div class="section-title">
@@ -848,42 +908,43 @@
       <div class="faq-container">
         <div class="faq-item">
           <button class="faq-question">
-            How do I redeem my R60 voucher coupon?
+            How do I redeem my R99.99 Combo Voucher?
             <i data-lucide="chevron-down" size="20"></i>
           </button>
           <div class="faq-answer">
-            Fill out the voucher claim form below. We will immediately generate a unique barcode on-screen and send a copy via SMS or WhatsApp. Simply show this digital barcode to the cashier at checkout.
+            Simply fill out the claim form below with your name and mobile phone number. An instant digital barcode voucher will be displayed on screen and sent to your WhatsApp/SMS. Present this barcode to the cashier when paying at any Pick n Cheaper store.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            Which Cape Town branches accept this coupon?
+            Which Pick n Cheaper store locations accept this voucher?
             <i data-lucide="chevron-down" size="20"></i>
           </button>
           <div class="faq-answer">
-            This social special is accepted at all major Pick n Cheaper Cape Town branches including Athlone, Bellville, Mitchells Plain, Wynberg, and Milnerton stores.
+            Your coupon barcode is redeemable across all Pick n Cheaper Cape Town branches including Athlone Superstore, Bellville Center, Mitchells Plain Promenade, Wynberg Main Road, and Milnerton Retail Park.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            Is there a limit on how many packs I can buy?
+            How long is the social special voucher valid?
             <i data-lucide="chevron-down" size="20"></i>
           </button>
           <div class="faq-answer">
-            Due to high demand and limited stock allocation for this social campaign, each voucher allows up to 2 packs per customer per day at the R99.99 promotional rate.
+            Due to intense demand from our TikTok & Instagram social campaign, generated vouchers are locked in for 48 hours from the time of generation to guarantee your store stock allocation.
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Conversion Form Section -->
   <section class="conversion-section" id="claim-form">
     <div class="container">
       <div class="form-card">
-        <h2>Claim Your R60 Voucher Coupon</h2>
-        <p>Enter your contact details below to instantly generate your digital barcode voucher.</p>
+        <h2>Claim My R99.99 Combo Voucher</h2>
+        <p>Enter your details below to instantly generate your digital barcode voucher.</p>
 
         <form onsubmit="handleFormSubmit(event)">
           <div class="form-group">
@@ -892,14 +953,14 @@
           </div>
 
           <div class="form-group">
-            <label for="email">Mobile / WhatsApp Number</label>
+            <label for="phone">Mobile / WhatsApp Number</label>
             <input type="tel" id="phone" placeholder="082 123 4567" required>
           </div>
 
           <div class="form-group">
-            <label for="location">Preferred Pickup Branch</label>
+            <label for="location">Preferred Store Location</label>
             <select id="location" required>
-              <option value="" disabled selected>Select your local store</option>
+              <option value="" disabled selected>Select your nearest branch</option>
               <option value="Athlone Superstore">Athlone Superstore</option>
               <option value="Bellville Commercial Center">Bellville Center</option>
               <option value="Mitchells Plain Promenade">Mitchells Plain</option>
@@ -909,37 +970,38 @@
           </div>
 
           <button type="submit" class="btn-primary" style="width: 100%; max-width: 100%; margin-top: 10px;">
-            Generate Barcode Voucher <i data-lucide="zap" size="18"></i>
+            Claim My R99.99 Combo Voucher <i data-lucide="zap" size="18"></i>
           </button>
         </form>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2026 Pick n Cheaper Supermarkets Cape Town. All Rights Reserved. | <a href="#" style="color: #94A3B8;">Privacy Policy</a> | <a href="#" style="color: #94A3B8;">Terms & Conditions</a></p>
     </div>
   </footer>
 
-  <!-- Modal Confirmation Window -->
+  <!-- Modal Barcode Popup -->
   <div class="modal" id="successModal">
     <div class="modal-content">
       <div style="background: #E6F4EA; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
         <i data-lucide="check" size="32" color="#00875A"></i>
       </div>
-      <h3 style="font-size: 24px; margin-bottom: 8px; font-weight: 800;">Voucher Ready!</h3>
+      <h3 style="font-size: 24px; margin-bottom: 8px; font-weight: 800;">Combo Voucher Claimed!</h3>
       <p style="color: var(--text-muted); font-size: 14px;">
-        Present this barcode at checkout to claim your <strong>2kg Chicken Pack for R99.99</strong>.
+        Present this barcode at checkout to get your <strong>1kg Chicken + 2kg Potato Combo for R99.99</strong>.
       </p>
 
       <div class="barcode-holder">
         ||| | |||| | ||| |||| |
-        <div style="font-size: 12px; font-family: sans-serif; letter-spacing: 0; color: var(--text-muted); margin-top: 6px;">PNC-CHX-9999-CPT</div>
+        <div style="font-size: 12px; font-family: sans-serif; letter-spacing: 0; color: var(--text-muted); margin-top: 6px;">PNC-COMBO-9999-CPT</div>
       </div>
 
       <p style="font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 20px;">
-        ⏱️ Voucher valid for 24 hours at selected store.
+        ⏱️ Voucher reserved for 48 hours at your selected branch.
       </p>
 
       <button class="btn-primary" onclick="closeModal()" style="width: 100%; max-width: 100%;">Done</button>
@@ -950,7 +1012,7 @@
     // Initialize Lucide Icons
     lucide.createIcons();
 
-    // 1. Countdown Timer Logic
+    // 1. Social Campaign Countdown Timer (23h 45m 12s)
     function startTimer(durationSeconds) {
       let timer = durationSeconds;
       const display = document.getElementById('countdown');
@@ -970,17 +1032,22 @@
         }
       }, 1000);
     }
-    startTimer(31335); // 08h 42m 15s
+    startTimer(85512); // 23h 45m 12s
 
-    // 2. Savings Calculator Logic
+    // 2. Interactive Portion & Meal Cost Estimator
     function calculateSavings() {
-      const packs = document.getElementById('packs-slider').value;
-      const textDisplay = packs == 1 ? '1 Pack (2kg)' : packs + ' Packs (' + (packs * 2) + 'kg)';
-      document.getElementById('packs-display').textContent = textDisplay;
+      const packs = parseInt(document.getElementById('packs-slider').value);
+      const weightTotal = packs * 3; // 1kg chicken + 2kg potato = 3kg
       
-      // Save R60 per pack * 4 weeks in a month
-      const monthlySavings = packs * 60 * 4;
-      document.getElementById('savings-display').textContent = 'R' + monthlySavings.toLocaleString() + ' / month';
+      document.getElementById('packs-display').textContent = packs === 1 ? `1 Combo (3kg Total)` : `${packs} Combos (${weightTotal}kg Total)`;
+      
+      // Portion math: 6 meal servings per combo @ R99.99 = R16.66 / meal
+      const costPerMeal = (99.99 / 6).toFixed(2);
+      document.getElementById('cost-per-meal').textContent = `R${costPerMeal}`;
+      
+      // Save R90 per combo vs regular price
+      const totalSavings = (packs * 90).toFixed(2);
+      document.getElementById('total-savings').textContent = `R${totalSavings}`;
     }
 
     // 3. FAQ Accordion Handler
@@ -991,7 +1058,7 @@
       });
     });
 
-    // 4. Form Submission and Modal Trigger
+    // 4. Form Submission and Barcode Modal
     function handleFormSubmit(event) {
       event.preventDefault();
       document.getElementById('successModal').style.display = 'flex';
